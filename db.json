@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "username": "erdisener",
+      "fullname": "erdi şener",
+      "password": "ffcc1adf60e8c27045913636209e61e4ca3884c8",
+      "id": 1
+    },
+    {
+      "username": "keanu",
+      "fullname": "Keanu Revees",
+      "password": "ffcc1adf60e8c27045913636209e61e4ca3884c8",
+      "id": 2
+    }
+  ],
+  "bookmarks": [],
+  "categories": []
+}
