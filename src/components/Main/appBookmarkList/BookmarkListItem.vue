@@ -2,12 +2,13 @@
   <div class="bg-white flex flex-col gap-x-3 rounded-md shadow-sm">
     <div class="p-3">
       <a
-        href="#"
+        :href="item.url"
+        target="_blank"
         class="hover:text-black font-bold text-l mb-1 text-gray-600 text-center"
-        >Vue3 Dokümantasyon</a
+        >{{ item.title || "-" }}</a
       >
       <div class="flex items-center justify-center mt-2 gap-x-1">
-        <button class="like-btn group">
+        <button @click="likeItem" class="like-btn group" :class="{'bookmark-item-active':alreadyLiked}">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="fill-current group-hover:text-white"
@@ -21,7 +22,7 @@
             />
           </svg>
         </button>
-        <button class="bookmark-btn group bookmark-item-active">
+        <button class="bookmark-btn group">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="fill-current group-hover:text-white"
@@ -51,19 +52,62 @@
               />
             </svg>
             <p class="details-container">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Similique nemo consequatur a accusamus assumenda laborum
-              consequuntur explicabo dolor, odit eligendi voluptate illum itaque
-              accusantium, cumque tenetur cupiditate illo libero dolores!
+              {{ item.description }}
             </p>
           </button>
         </div>
       </div>
       <div class="text-xs text-gray-400 mt-2 flex justify-between">
-        <a href="#" class="hover:text-black"> Gökhan Kandemir </a>
-        <span>14 Mart</span>
+        <a href="#" class="hover:text-black"> {{ userName }} </a>
+        <span>{{ item.created_at }}</span>
       </div>
     </div>
-    <div class="bg-red-200 p-1 text-red-900 text-center text-sm">Vue.js</div>
+    <div class="bg-red-200 p-1 text-red-900 text-center text-sm">
+      {{ categoryName }}
+    </div>
   </div>
 </template>
+
+<script>
+import { mapGetters } from "vuex";
+
+export default {
+  props: {
+    item: {
+      type: Object,
+      required: true,
+      default: () => {},
+    },
+  },
+   methods: {
+    likeItem() {
+      //console.log("_userLikes", this._userLikes);
+
+     let likes = [...this._userLikes];
+
+     if(!this.alreadyLiked) {
+       likes = [...likes, this.item.id ];
+     } else {
+       likes = likes.filter(l => l != this.item.id );
+     }
+
+      this.$appAxios.patch(`/users/${this._getCurrentUser.id}`, { likes }).then((like_response) => {
+          console.log(like_response);
+          this.$store.commit("setLikes", likes)
+        });
+    }
+  },
+  computed: {
+    categoryName() {
+      return this.item?.category?.name || "-";
+    },
+    userName() {
+      return this.item?.user?.fullname || "-";
+    },
+    alreadyLiked() {
+      return this._userLikes?.indexOf(this.item.id) > -1 ;
+    },
+  ...mapGetters(["_getCurrentUser", "_userLikes"])
+  }
+};
+</script>

@@ -4,7 +4,11 @@
       "username": "erdisener",
       "fullname": "erdi şener",
       "password": "ffcc1adf60e8c27045913636209e61e4ca3884c8",
-      "id": 1
+      "id": 1,
+      "likes": [
+        9,
+        3
+      ]
     },
     {
       "username": "keanu",
@@ -13,6 +17,113 @@
       "id": 2
     }
   ],
-  "bookmarks": [],
-  "categories": []
+  "bookmarks": [
+    {
+      "title": "Sisu9 belgeler",
+      "url": "https://sisu9.com",
+      "categoryId": 5,
+      "description": "Firma belgeleri",
+      "userId": 1,
+      "created_at": "2022-01-17T18:44:00.264Z",
+      "id": 1
+    },
+    {
+      "title": "yeni",
+      "url": "yeni.com",
+      "categoryId": 2,
+      "description": "dssss",
+      "userId": 1,
+      "created_at": "2022-01-17T19:10:17.182Z",
+      "id": 2
+    },
+    {
+      "title": "Yeni vue projesi",
+      "url": "vue.com.tr",
+      "categoryId": 1,
+      "description": "Çok güzel oldu bu proje",
+      "userId": 1,
+      "created_at": "2022-01-18T12:55:17.474Z",
+      "id": 3
+    },
+    {
+      "title": "React New Project",
+      "url": "reactjs.org",
+      "categoryId": 2,
+      "description": "Harika react",
+      "userId": 1,
+      "created_at": "2022-01-18T12:55:54.887Z",
+      "id": 4
+    },
+    {
+      "title": "PHP kral",
+      "url": "php.net",
+      "categoryId": 4,
+      "description": "Müthiş müthiş",
+      "userId": 1,
+      "created_at": "2022-01-18T12:56:22.017Z",
+      "id": 5
+    },
+    {
+      "title": "Laravel geliyor",
+      "url": "laravel.net",
+      "categoryId": 4,
+      "description": "Süper framework",
+      "userId": 1,
+      "created_at": "2022-01-18T12:56:48.868Z",
+      "id": 6
+    },
+    {
+      "title": "UX/UI project",
+      "url": "ui.com",
+      "categoryId": 3,
+      "description": "Temel bu başlangıç",
+      "userId": 1,
+      "created_at": "2022-01-18T12:57:14.665Z",
+      "id": 7
+    },
+    {
+      "title": "Deli vue projesi",
+      "url": "delivue.com",
+      "categoryId": 1,
+      "description": "Diyecek kelime yok",
+      "userId": 1,
+      "created_at": "2022-01-18T12:57:38.796Z",
+      "id": 8
+    },
+    {
+      "title": "Facebook yapıyoruz",
+      "url": "harikafb.com",
+      "categoryId": 6,
+      "description": "Sosyal uygulama",
+      "userId": 1,
+      "created_at": "2022-01-18T12:58:13.353Z",
+      "id": 9
+    }
+  ],
+  "categories": [
+    {
+      "name": "Vue.js",
+      "id": 1
+    },
+    {
+      "name": "React.js",
+      "id": 2
+    },
+    {
+      "name": "Frontend",
+      "id": 3
+    },
+    {
+      "name": "Backend",
+      "id": 4
+    },
+    {
+      "name": "Cloud",
+      "id": 5
+    },
+    {
+      "name": "Social",
+      "id": 6
+    }
+  ]
 }
